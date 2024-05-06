@@ -1,7 +1,7 @@
 <?php
 /**
- * Plugin Name: Siam CM Call Marker
- * Description: Siam Call Marker API: nana & application
+ * Plugin Name: Siam Call Marker API
+ * Description: Siam Call Marker API: nana & application tests
  * Version: 0.1
  * Author: Mulli Bahr
  */
