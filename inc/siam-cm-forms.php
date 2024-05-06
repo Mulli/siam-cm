@@ -59,24 +59,28 @@ function handle_siam_cm_forms( $record, $handler ) {
     }
     return ;     
 }
-add_action( 'elementor_pro/forms/new_record', 'handle_siam_cm_forms', 10, 2 );
 
-function siam_cm_send_request($url, $arg){
-    $response = wp_remote_post( $url, array(
-        'method'      => 'POST',
-        'timeout'     => 45,
-        'redirection' => 5,
-        'httpversion' => '1.0',
-        'blocking'    => true,
-        'headers'     => array(),
-        'body'        => $arg,
-        'cookies'     => array()
-        )
-    );
-    
-    if ( is_wp_error( $response ) ) {
-        $error_message = $response->get_error_message();
-        return ['status' => 'fail', 'error' => "Something went wrong: $error_message"];
-    } 
-    return ['status' => 'success', 'response' => $response];
-}
+
+
+/* How to return to form page more complex data AFTER form submission & Webhook activation
+    add_action( 'elementor_pro/forms/new_record', function( $record, $ajax_handler ) {
+	// USUAL staff...
+    // run webhook
+    // THIS IS THE NEW STAFF
+	$ajax_handler->data['output'] = 'INFORM_02 Output is: ' . $fields['email_field_id'];
+});
+
+// YOU MUST HAVE JS CODE ON PAGE TO DISPLAY THE OUTPUT
+// THIS IS THE JS CODE
+<script>
+	//The event is submit_success so you can catch it for example:
+	jQuery( document ).ready(function( $ ){
+		$( document ).on('submit_success', function( event, response ){
+			if ( response.data.output ) {
+				alert( response.data.output  );
+			}
+            $(this).append('<div class="elementor-message elementor-message-success" role="alert"><p>Thank you for your message. It has been sent.</p></div>');
+		});
+	});
+</script>
+    */
