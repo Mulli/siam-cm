@@ -1,4 +1,11 @@
+Sima rest api intrefce with Call Marker application
 
+Version 0.99:
++ final twicks to support single code base for Siam Website, Office and application
+
+Known Issues planned for future releases:
++ Unify codes - need to complete
++ extend Siam application - CM API calls 
 
 Zapeir hooks that replaced (SIAMCODE need to be replaced)
     zapier home page: https://hooks.zapier.com/hooks/catch/SIAMCODE/3da7dvr/
